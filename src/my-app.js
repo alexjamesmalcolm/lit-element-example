@@ -20,9 +20,7 @@ class MyApp extends LitElement {
 
     render() {
         return html`
-            <header>
-                <p>Hello ${this.username}</p>
-            </header>
+            <my-header username=${this.username} @sign-out=${this.signOut}></my-header>
             <main>
                 <p>Here are your messages</p>
                 <ul>
@@ -31,6 +29,11 @@ class MyApp extends LitElement {
             </main>
             <footer></footer>
         `;
+    }
+
+    signOut() {
+        this.username = "";
+        this.messages = [];
     }
 }
 
